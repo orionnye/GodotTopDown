@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh"
+
+[deps]
+
+files=[ "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh" ]
+
+source_file="res://Assets/FreeHumanModel.obj"
+dest_files=[ "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh", "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
