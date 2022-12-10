@@ -22,11 +22,11 @@ func _ready():
 		cube.scale = Vector3(1, 1+yChange, 1)
 		add_child(cube)
 
-#	for i in 10:
-#		var gun = gunScene.instance()
-#		gun.translate(Vector3(0, 0, (i-5)*5))
-#		gun.set_rotation(Vector3(0, PI/2, 0))
-#		add_child(gun)
+	for i in 10:
+		var gun = gunScene.instance()
+		gun.translate(Vector3(0, 0, (i-5)*5))
+		gun.set_rotation(Vector3(0, PI/2, 0))
+		add_child(gun)
 
 	var playerInstance = playerScene.instance()
 	add_child(playerInstance)

@@ -22,7 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var this = $"."
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		var bullet = bulletScene.instance()
 		var globalRotation = this.get_global_rotation()
 		var rotation = fmod(globalRotation.y, PI*2)
