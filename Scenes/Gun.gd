@@ -1,6 +1,5 @@
 extends Spatial
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,7 +11,7 @@ export var bulletDistance = 1000
 export var gunLength = 1
 export var gunHeight = 1
 export var decay = 0.9
-var bulletScene = load('./Scenes/Bullet.tscn')
+var bulletScene = load('./Scenes/Bullet.tscn') 
 
 onready var map = $"../.."
 # Called when the node enters the scene tree for the first time.
