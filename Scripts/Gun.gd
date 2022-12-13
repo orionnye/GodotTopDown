@@ -26,7 +26,7 @@ func _process(delta):
 #		print("rotation:", rotation)
 		var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
 		
-		bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
+		bullet.transform.origin = this.get_global_transform().origin
 		
 		bullet.apply_central_impulse(bulletForceRotated)
 		map.add_child(bullet)
