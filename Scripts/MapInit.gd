@@ -8,7 +8,7 @@ extends Spatial
 func _ready():
 	var playerScene = load('res://Scenes/Prefabs/Player.tscn')
 	var cubeScene = load('res://Scenes/Prefabs/InteractiveCube.tscn')
-	var gunScene = load('res://Scenes/Prefabs/Gun.tscn')
+	var gunScene = load('res://Scenes/Prefabs/Rifle/Gun.tscn')
 	var random = RandomNumberGenerator.new()
 #	var interactive = load('./Scenes/InteractiveCube.tscn')
 	for i in 10:

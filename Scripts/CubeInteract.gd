@@ -5,7 +5,7 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
-onready var player = get_node("../PlayerScene")
+onready var player = get_node("res://Scenes/Prefabs/PlayerScene")
 onready var this = $"."
 # Called when the node enters the scene tree for the first time.
 func _ready():
