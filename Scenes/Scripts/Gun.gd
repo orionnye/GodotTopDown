@@ -8,13 +8,10 @@ extends Spatial
 var bulletList = []
 export var bulletSpeed = 50
 export var bulletDistance = 1000
+export var gunLength = 1
+export var gunHeight = 1
 export var decay = 0.9
-export var bulletTimeAlive = 2.0
-export var bulletVelocity = 100.0
-export var bulletPerShot = 1
-export var shotDelay = 0.001
-
-var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn')
+var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn') 
 
 onready var map = $"../.."
 # Called when the node enters the scene tree for the first time.
@@ -28,10 +25,10 @@ func _process(delta):
 		var bullet = bulletScene.instance()
 		var globalRotation = this.get_global_rotation()
 		var rotation = fmod(globalRotation.y, PI*2)
-#		print("rotation:", rotation)
+		print("rotation:", rotation)
 		var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
 		
-		bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
+		bullet.transform.origin = this.get_global_transform().origin + Vector3(0, gunHeight, -gunLength).rotated(Vector3.UP, rotation)
 		
 		bullet.apply_central_impulse(bulletForceRotated)
 		map.add_child(bullet)
