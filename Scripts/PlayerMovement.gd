@@ -55,6 +55,6 @@ func _on_Timer_timeout():
 	var _mousePos = get_viewport().get_mouse_position()
 	
 	var mousePos = Vector2(playerPos.x, playerPos.y) - _mousePos
-	print("Mouse pos: ", _mousePos, "\nPlayer pos: ", playerPos)
+#	print("Mouse pos: ", _mousePos, "\nPlayer pos: ", playerPos)
 
 
