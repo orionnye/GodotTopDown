@@ -4,12 +4,11 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var playerScene = load('./Scenes/Prefabs/Player.tscn')
-	var cubeScene = load('./Scenes/Prefabs/InteractiveCube.tscn')
-	var gunScene = load('./Scenes/Prefabs/Gun.tscn')
+	var playerScene = load('res://Scenes/Prefabs/Player.tscn')
+	var cubeScene = load('res://Scenes/Prefabs/InteractiveCube.tscn')
+	var gunScene = load('res://Scenes/Prefabs/Gun.tscn')
 	var random = RandomNumberGenerator.new()
 #	var interactive = load('./Scenes/InteractiveCube.tscn')
 	for i in 10:

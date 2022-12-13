@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[sub_resource type="CapsuleMesh" id=1]
-
-[node name="Penis" type="Spatial"]
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.977005, 0.213218, 0, -0.213218, 0.977005, 0, 0, 0 )
-mesh = SubResource( 1 )
