@@ -8,10 +8,10 @@ extends Spatial
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var playerScene = load('./Scenes/Player.tscn')
-	var cubeScene = load('./Scenes/Cube.tscn')
+	var cubeScene = load('./Scenes/InteractiveCube.tscn')
 	var gunScene = load('./Scenes/Gun.tscn')
 	var random = RandomNumberGenerator.new()
-
+#	var interactive = load('./Scenes/InteractiveCube.tscn')
 	for i in 10:
 		var cube = cubeScene.instance()
 		random.randomize()
@@ -21,12 +21,12 @@ func _ready():
 		cube.translate(Vector3(xChange, 1+yChange+0.1, zChange))
 		cube.scale = Vector3(1, 1+yChange, 1)
 		add_child(cube)
-
-	for i in 10:
-		var gun = gunScene.instance()
-		gun.translate(Vector3(0, 0, (i-5)*5))
-		gun.set_rotation(Vector3(0, PI/2, 0))
-		add_child(gun)
+	
+#	for i in 10:
+#		var gun = gunScene.instance()
+#		gun.translate(Vector3(0, 0, (i-5)*5))
+#		gun.set_rotation(Vector3(0, PI/2, 0))
+#		add_child(gun)
 
 	var playerInstance = playerScene.instance()
 	add_child(playerInstance)
