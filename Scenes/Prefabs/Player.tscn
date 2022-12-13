@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/SekolCharacter.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://Scenes/PlayerMovement.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Camera.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Gun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/PlayerMovement.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Prefabs/Gun.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 

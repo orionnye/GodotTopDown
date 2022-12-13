@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Gun.obj" type="ArrayMesh" id=2]
+
 
 [node name="Gun" type="Spatial"]
 script = ExtResource( 1 )

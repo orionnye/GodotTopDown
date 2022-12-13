@@ -7,9 +7,9 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var playerScene = load('./Scenes/Player.tscn')
-	var cubeScene = load('./Scenes/InteractiveCube.tscn')
-	var gunScene = load('./Scenes/Gun.tscn')
+	var playerScene = load('./Scenes/Prefabs/Player.tscn')
+	var cubeScene = load('./Scenes/Prefabs/InteractiveCube.tscn')
+	var gunScene = load('./Scenes/Prefabs/Gun.tscn')
 	var random = RandomNumberGenerator.new()
 #	var interactive = load('./Scenes/InteractiveCube.tscn')
 	for i in 10:
