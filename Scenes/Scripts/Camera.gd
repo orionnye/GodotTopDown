@@ -1,8 +1,8 @@
 extends Camera
 
 # Called when the node enters the scene tree for the first time.
-export var cameraRotation = Vector3(-PI/2, PI, 0)
-export var cameraOffset = Vector3(0, 15, -3)
+export var cameraRotation = Vector3(-PI/3, PI, 0)
+export var cameraOffset = Vector3(0, 15, 10)
 
 func _ready():
 	pass # Replace with function body.

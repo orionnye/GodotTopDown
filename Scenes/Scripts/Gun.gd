@@ -13,7 +13,7 @@ export var bulletTimeAlive = 2.0
 export var bulletPerShot = 1
 export var reloading = 0.25
 export var reloadTime = 1.0
-export var automatic = 1
+export var automatic = true
 var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn')
 
 onready var map = $"../.."
@@ -24,11 +24,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var this = $"."
-	if automatic == 1:
+	if automatic:
 		if Input.is_action_pressed("shoot"):
 			auto_fire(this)
 			reloading -= delta
-	elif automatic == 0:
+	else:
 		if Input.is_action_just_pressed("shoot"):
 			semi_fire(this)
 			reloading -= delta
