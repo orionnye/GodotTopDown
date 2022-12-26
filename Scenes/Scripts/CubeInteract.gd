@@ -16,8 +16,8 @@ func _process(delta):
 	var plPos = get_parent().get_node("Player").global_transform.origin
 	var selfPosition = global_transform.origin
 	var distance = plPos.distance_to(selfPosition)
-#	if(distance < 3):
-#		print("Interact with cube...")
-#		if Input.is_action_just_pressed("ui_interact"):
-#			print("You interacted with the Cube!")
+	if(distance < 3):
+		print("Interact with cube...")
+		if Input.is_action_just_pressed("ui_interact"):
+			print("You interacted with the Cube!")
 		

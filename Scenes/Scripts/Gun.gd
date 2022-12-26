@@ -1,13 +1,19 @@
 extends Spatial
 
-#Bullet Data
-export var bulletSpeed = 20
-export var bulletsPerShot = 2
-export var accuracy = 1.3
-export var shotDelay = 2
-var onCooldown = false
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
+#Bullet Data
+var bulletList = []
+export var bulletSpeed = 100.0
+export var bulletDistance = 1000
 export var decay = 0.9
+export var bulletTimeAlive = 2.0
+export var bulletPerShot = 1
+export var reloading = 0.25
+export var reloadTime = 1.0
+export var automatic = true
 var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn')
 
 onready var map = $"../.."
@@ -18,27 +24,36 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var this = $"."
+	if automatic:
+		if Input.is_action_pressed("shoot"):
+			auto_fire(this)
+			reloading -= delta
+	else:
+		if Input.is_action_just_pressed("shoot"):
+			semi_fire(this)
+			reloading -= delta
 
-	if Input.is_action_pressed("shoot") && !onCooldown:
-		onCooldown = true
-		var _timer = Timer.new()
-		add_child(_timer)
-		_timer.connect("timeout", self, "_on_Timer_timeout")
-		_timer.set_one_shot(true)
-		_timer.set_wait_time(shotDelay)
-		_timer.start()
-		
-		var globalRotation = this.get_global_rotation()
-		for i in bulletsPerShot:
-			var random = RandomNumberGenerator.new()
-			random.randomize()
+func auto_fire(this):
+	if reloading <= 0.0:
+		for i in bulletPerShot:
 			var bullet = bulletScene.instance()
-			var rotation = fmod(globalRotation.y, (PI*2)*accuracy)
+			var globalRotation = this.get_global_rotation()
+			var rotation = fmod(globalRotation.y, PI*2)
+			#		print("rotation:", rotation)
 			var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
-			
-			bullet.transform.origin = this.get_global_transform().origin
+			bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
 			bullet.apply_central_impulse(bulletForceRotated)
 			map.add_child(bullet)
+		reloading = reloadTime
 
-func _on_Timer_timeout():
-	onCooldown = false
+func semi_fire(this):
+	for i in bulletPerShot:
+		var bullet = bulletScene.instance()
+		var globalRotation = this.get_global_rotation()
+		var rotation = fmod(globalRotation.y, PI*2)
+	#		print("rotation:", rotation)
+		var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
+		bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
+		bullet.apply_central_impulse(bulletForceRotated)
+		map.add_child(bullet)
+	reloading = reloadTime
