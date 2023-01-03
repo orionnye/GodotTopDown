@@ -12,5 +12,5 @@ spread = 0.2
 bulletTimeAlive = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.228457, 0, 0.325932 )
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.356331, 0, 0.143252 )
 mesh = ExtResource( 2 )

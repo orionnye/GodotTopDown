@@ -1,15 +1,4 @@
-extends KinematicBody
-
-#Player Movement
-export var speed = 5
-export var maxSpeed = 10
-var decay = 0.9
-var velocity = Vector3()
-
-#Global tools
-onready var map = $"../."
-onready var this= $"."
-onready var cam = $"Camera"
+extends "res://Scenes/Scripts/Player.gd"
 
 func _ready():
 	var _timer = Timer.new()
