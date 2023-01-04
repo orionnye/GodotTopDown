@@ -1,59 +1,50 @@
 extends Spatial
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 #Bullet Data
 var bulletList = []
 export var bulletSpeed = 100.0
 export var bulletDistance = 1000
 export var decay = 0.9
-export var bulletTimeAlive = 2.0
 export var bulletPerShot = 1
-export var reloading = 0.25
+export var bulletMass = 1
+export var spread = PI/4
 export var reloadTime = 1.0
+var reloading = 0
+export var bulletTimeAlive = 2.0
 export var automatic = true
 var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn')
 
 onready var map = $"../.."
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func get_rotation() -> Vector3:
 	var this = $"."
-	if automatic:
-		if Input.is_action_pressed("shoot"):
-			auto_fire(this)
-			reloading -= delta
-	else:
-		if Input.is_action_just_pressed("shoot"):
-			semi_fire(this)
-			reloading -= delta
-
-func auto_fire(this):
-	if reloading <= 0.0:
+	var globalRotation = this.global_transform.basis.get_euler()
+	var rotation = Vector3.FORWARD.rotated(Vector3.UP, globalRotation.y)
+	rotation.rotated(Vector3.LEFT, globalRotation.x)
+	rotation.rotated(Vector3.BACK, globalRotation.z)
+	return rotation.normalized()
+func get_recoil() -> Vector3:
+	var bulletForce = bulletSpeed*bulletMass
+	var fireForce = get_rotation() * bulletForce*bulletPerShot
+	return -fireForce
+func _process(delta):
+	if reloading > 0:
+		reloading -= delta
+func fire():
+	if reloading <= 0:
 		for i in bulletPerShot:
-			var bullet = bulletScene.instance()
-			var globalRotation = this.get_global_rotation()
-			var rotation = fmod(globalRotation.y, PI*2)
-			#		print("rotation:", rotation)
-			var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
-			bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
-			bullet.apply_central_impulse(bulletForceRotated)
-			map.add_child(bullet)
+			var random = RandomNumberGenerator.new()
+			random.randomize()
+			var direction = randf()*spread - spread/2
+			fire_bullet(bulletSpeed, direction)
 		reloading = reloadTime
 
-func semi_fire(this):
-	for i in bulletPerShot:
-		var bullet = bulletScene.instance()
-		var globalRotation = this.get_global_rotation()
-		var rotation = fmod(globalRotation.y, PI*2)
-	#		print("rotation:", rotation)
-		var bulletForceRotated = Vector3(0, 0, -bulletSpeed).rotated(Vector3.UP, rotation)
-		bullet.transform.origin = this.get_global_transform().origin + Vector3(0, 0, 0).rotated(Vector3.UP, rotation)
-		bullet.apply_central_impulse(bulletForceRotated)
-		map.add_child(bullet)
-	reloading = reloadTime
+func fire_bullet(speed, direction):
+#	direction is measured in radians from straight forward of gun(ie: -PI/6, PI/8)
+	var this = $"."
+	var bullet = bulletScene.instance()
+	var globalRotation = this.global_transform.basis.get_euler()
+	
+	var bulletForce = (get_rotation()*bulletSpeed).rotated(Vector3.UP, direction)
+	bullet.transform.origin = this.get_global_transform().origin
+	bullet.apply_central_impulse(bulletForce)
+	map.add_child(bullet)
