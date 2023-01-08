@@ -7,8 +7,10 @@
 
 [sub_resource type="CapsuleShape" id=1]
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-06, -0.00164032, -0.000488281 )
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource( 2 )
 
 [node name="Shotgun" parent="." instance=ExtResource( 4 )]

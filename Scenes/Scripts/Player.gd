@@ -1,8 +1,8 @@
-extends KinematicBody
+extends RigidBody
 
 #Player Movement
-export var speed = 5
-export var maxSpeed = 10
+export var speed = 0.1
+export var maxSpeed = 1
 var decay = 0.9
 var velocity = Vector3()
 
