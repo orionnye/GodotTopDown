@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Glass.md",
+                "file": "Glass.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Glass.md",
+                "file": "Glass.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Glass.md",
+                "file": "Glass.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Glass.md"
+                "file": "Glass.md"
               }
             }
           }
@@ -148,14 +148,14 @@
   },
   "active": "be9b613b9bfa9f77",
   "lastOpenFiles": [
+    "Melee weapons.md",
+    "Synapsis.md",
+    "Guns.md",
+    "Glass.md",
     "notes/Guns.md",
     "notes/Melee weapons.md",
     "notes/Synapsis.md",
     "notes/Glass.md",
-    "Untitled.md",
-    "Melee weapons.md",
-    "Guns.md",
-    "Glass.md",
-    "Synapsis.md"
+    "Untitled.md"
   ]
 }

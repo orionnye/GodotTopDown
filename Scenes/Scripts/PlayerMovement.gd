@@ -26,16 +26,14 @@ func _process(delta):
 
 func look_follow(state, current_transform, target_position):
 	var up_dir = Vector3(0, 1, 0)
-#	target_position = Vector3(-1, 0, 1)
 	var cur_dir = current_transform.basis.xform(Vector3(0, 0, 1))
 	var target_dir = target_position.normalized()
 	
 	var cur_angle = Vector2(cur_dir.x, cur_dir.z).angle()
 	var target_angle = Vector2(target_dir.x, target_dir.z).angle()
-#	var rotation_angle = acos(cur_dir.z) - acos(target_dir.z)
 	var rotation_angle = cur_angle - target_angle
-
-	state.set_angular_velocity(up_dir * (rotation_angle / state.get_step()))
+	if (abs(rotation_angle) <= PI):
+		state.set_angular_velocity(up_dir * (rotation_angle / state.get_step()))
 
 func get_mouse_pos() -> Vector2:
 	var this = $"."

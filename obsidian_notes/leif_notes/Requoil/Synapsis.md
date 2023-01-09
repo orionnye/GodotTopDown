@@ -4,7 +4,7 @@ Requoil has the player drop down onto an alien planet to mine resources for thei
 
 The game rewards players for building up speed by granting them extra damage at high velocity. Players can get higher velocities through a number of means but the two most important are: tile management and gunplay mastery.
 
-Gunplay mastery is the player's ability to use requoil from [guns](obsidian://open?vault=Requoil&file=Guns) (or even [melee weapons](obsidian://open?vault=Requoil&file=Melee%20weapons)) to garner speed.
+Gunplay mastery is the player's ability to use recoil from [guns](obsidian://open?vault=Requoil&file=Guns) (or even [melee weapons](obsidian://open?vault=Requoil&file=Melee%20weapons)) to garner speed.
 
 Tile management involves players intentionally altering the landscape to aide movement or grant other bonuses
 
