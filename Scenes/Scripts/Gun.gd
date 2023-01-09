@@ -5,7 +5,7 @@ export var bulletSpeed = 100.0
 export var bulletDistance = 1000
 export var decay = 0.9
 export var bulletPerShot = 1
-export var bulletMass = 1
+export var bulletMass = 0.05
 export var spread = PI/4
 export var reloadTime = 1.0
 var reloading = 0
@@ -22,6 +22,7 @@ func get_rotation() -> Vector3:
 	rotation.rotated(Vector3.LEFT, globalRotation.x)
 	rotation.rotated(Vector3.BACK, globalRotation.z)
 	return rotation.normalized()
+	
 func get_recoil() -> Vector3:
 	var bulletForce = bulletSpeed*bulletMass
 	var fireForce = get_rotation() * bulletForce*bulletPerShot
