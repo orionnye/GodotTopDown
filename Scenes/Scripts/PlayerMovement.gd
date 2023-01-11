@@ -12,10 +12,9 @@ func move(character):
 		acceleration.z -= speed
 	if Input.is_action_pressed("ui_up"):
 		acceleration.z += speed
-	velocity += acceleration.normalized() * maxSpeed
-	character.apply_central_impulse(velocity)
+	acceleration = acceleration.normalized() * maxSpeed
+	character.apply_central_impulse(acceleration)
 	character.set_linear_damp(5)
-	velocity = velocity*decay
 
 # ---------------Aim Functions---------------------------
 func look_follow(state, current_transform, target_position):

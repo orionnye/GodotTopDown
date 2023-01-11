@@ -4,7 +4,7 @@ extends RigidBody
 export var speed = 0.1
 export var maxSpeed = 1
 var decay = 0.1
-var velocity = Vector3(0, 0, 0)
+#var velocity = Vector3(0, 0, 0)
 
 #Global tools
 onready var this = $"."
@@ -17,11 +17,11 @@ func handleGun(gun):
 	if gun.automatic:
 		if Input.is_action_pressed("shoot"):
 			gun.fire()
-			velocity += gun.get_recoil()
+			this.apply_central_impulse(gun.get_recoil())
 	else:
 		if Input.is_action_just_pressed("shoot"):
 			gun.fire()
-			velocity += gun.get_recoil()
+			this.apply_central_impulse(gun.get_recoil())
 
 #---------------------- Exit -----------------------
 func _ready():
