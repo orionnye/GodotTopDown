@@ -3,16 +3,18 @@ extends "res://Scenes/Scripts/Player.gd"
 # -----------------Mobility Functions------------------------
 func move(character):
 	var direction = Vector3.ZERO
-	if Input.is_action_pressed("ui_right") && velocity.length() < maxSpeed:
-		velocity.x -= speed
-	if Input.is_action_pressed("ui_left") && velocity.length() < maxSpeed:
-		velocity.x += speed
-	if Input.is_action_pressed("ui_down") && velocity.length() < maxSpeed:
-		velocity.z -= speed
-	if Input.is_action_pressed("ui_up") && velocity.length() < maxSpeed:
-		velocity.z += speed
-	
+	var acceleration = Vector3(0, 0, 0)
+	if Input.is_action_pressed("ui_right"):
+		acceleration.x -= speed
+	if Input.is_action_pressed("ui_left"):
+		acceleration.x += speed
+	if Input.is_action_pressed("ui_down"):
+		acceleration.z -= speed
+	if Input.is_action_pressed("ui_up"):
+		acceleration.z += speed
+	velocity += acceleration.normalized() * maxSpeed
 	character.apply_central_impulse(velocity)
+	character.set_linear_damp(5)
 	velocity = velocity*decay
 
 # ---------------Aim Functions---------------------------

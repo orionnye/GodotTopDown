@@ -11,16 +11,16 @@ func _ready():
 	var gunScene = load('res://Scenes/Prefabs/Gun.tscn')
 	var random = RandomNumberGenerator.new()
 #	var interactive = load('./Scenes/InteractiveCube.tscn')
-	for i in 10:
-		var cube = cubeScene.instance()
-		random.randomize()
-		var yChange = random.randf_range(0, 1)
-		var xChange = random.randf_range(-10, 10)
-		var zChange = random.randf_range(-10, 10)
-		cube.translate(Vector3(xChange, 1+yChange+0.1, zChange))
-		cube.scale = Vector3(1, 1+yChange, 1)
-		add_child(cube)
-	
+#	for i in 10:
+#		var cube = cubeScene.instance()
+#		random.randomize()
+#		var yChange = random.randf_range(0, 1)
+#		var xChange = random.randf_range(-10, 10)
+#		var zChange = random.randf_range(-10, 10)
+#		cube.translate(Vector3(xChange, 1+yChange+0.1, zChange))
+#		cube.scale = Vector3(1, 1+yChange, 1)
+#		add_child(cube)
+#
 	for i in 2:
 		var gun = gunScene.instance()
 		gun.translate(Vector3(0, 2, (i-5)*5))
