@@ -4,18 +4,41 @@ extends "res://Scenes/Scripts/Player.gd"
 func move(character):
 	var direction = Vector3.ZERO
 	var acceleration = Vector3(0, 0, 0)
-	if Input.is_action_pressed("ui_right"):
-		acceleration.x -= speed
-	if Input.is_action_pressed("ui_left"):
-		acceleration.x += speed
-	if Input.is_action_pressed("ui_down"):
-		acceleration.z -= speed
-	if Input.is_action_pressed("ui_up"):
-		acceleration.z += speed
+	if !jumping:
+		if Input.is_action_pressed("ui_right"):
+			acceleration.x -= speed
+		if Input.is_action_pressed("ui_left"):
+			acceleration.x += speed
+		if Input.is_action_pressed("ui_down"):
+			acceleration.z -= speed
+		if Input.is_action_pressed("ui_up"):
+			acceleration.z += speed
+		if Input.is_action_just_pressed("ui_jump"):
+			jump(character)
+	
 	acceleration = acceleration.normalized() * maxSpeed
 	character.apply_central_impulse(acceleration)
-	character.set_linear_damp(5)
+	
+	if jumping:
+		character.set_linear_damp(airDamp)
+	else:
+		character.set_linear_damp(groundDamp)
 
+func jump(character):
+	jumping = true
+	character.apply_central_impulse(Vector3(0, character.jumpForce, 0))
+	print("starting Jump")
+	var _timer = Timer.new()
+	character.add_child(_timer)
+	
+	_timer.connect("timeout", self, "jump_timeout")
+	_timer.set_one_shot(true)
+	_timer.set_wait_time(jumpTime)
+	_timer.start()
+	
+func jump_timeout():
+	jumping = false
+	print("ending Jump")
 # ---------------Aim Functions---------------------------
 func look_follow(state, current_transform, target_position):
 	var up_dir = Vector3(0, 1, 0)
@@ -38,7 +61,6 @@ func get_mouse_pos() -> Vector2:
 	
 	var mousePos = _mousePos - playerPos
 	return mousePos
-
 
 # ----------------Exit--(i dunno, everything is called from these functions before leaving)
 func ready():

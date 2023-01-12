@@ -31,13 +31,12 @@ func _process(delta):
 	if reloading > 0:
 		reloading -= delta
 func fire():
-	if reloading <= 0:
-		for i in bulletPerShot:
-			var random = RandomNumberGenerator.new()
-			random.randomize()
-			var direction = randf()*spread - spread/2
-			fire_bullet(bulletSpeed, direction)
-		reloading = reloadTime
+	for i in bulletPerShot:
+		var random = RandomNumberGenerator.new()
+		random.randomize()
+		var direction = randf()*spread - spread/2
+		fire_bullet(bulletSpeed, direction)
+	reloading = reloadTime
 
 func fire_bullet(speed, direction):
 #	direction is measured in radians from straight forward of gun(ie: -PI/6, PI/8)

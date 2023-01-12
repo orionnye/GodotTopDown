@@ -1,5 +1,5 @@
 [gd_resource type="PhysicsMaterial" format=2]
 
 [resource]
-friction = 0.9
+friction = 4.2
 rough = true
