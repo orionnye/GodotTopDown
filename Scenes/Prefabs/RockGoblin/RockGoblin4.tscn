@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/RockGoblin/RockGoblin4.glb" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Scripts/PlayerAnimate.gd" type="Script" id=2]
+
+[node name="RockGoblin4" instance=ExtResource( 1 )]
+transform = Transform3D( -0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0 )
+
+[node name="Skeleton3D" parent="Rig" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment6"), NodePath("BoneAttachment7"), NodePath("BoneAttachment8") ]
+bones/2/bound_children = [ NodePath("BoneAttachment2") ]
+bones/3/bound_children = [ NodePath("BoneAttachment3D") ]
+bones/4/bound_children = [ NodePath("BoneAttachment4") ]
+bones/5/bound_children = [ NodePath("BoneAttachment3") ]
+bones/6/bound_children = [ NodePath("BoneAttachment5") ]
+bones/8/bound_children = [ NodePath("BoneAttachment10") ]
+bones/9/bound_children = [ NodePath("BoneAttachment9") ]
+bones/10/bound_children = [ NodePath("BoneAttachment12") ]
+bones/11/bound_children = [ NodePath("BoneAttachment11") ]
+bones/12/bound_children = [ NodePath("BoneAttachment13") ]
+
+[node name="BoneAttachment3D" parent="Rig/Skeleton3D" index="0"]
+transform = Transform3D( 0.953775, 0.0917485, 0.286174, 0.259029, -0.733798, -0.628048, 0.152371, 0.673144, -0.723644, 1.11531, -0.00208408, 0.0899984 )
+
+[node name="BoneAttachment2" parent="Rig/Skeleton3D" index="1"]
+transform = Transform3D( 0.823061, 0.565826, -0.049097, 0.567809, -0.821714, 0.0487738, -0.0127462, -0.0680215, -0.997602, 0.683252, 0.625364, 0.141939 )
+
+[node name="BicepL" parent="Rig/Skeleton3D/BoneAttachment2" index="0"]
+transform = Transform3D( 0.204041, 0.00855266, -0.0336107, 0.0115518, -0.273804, 0.0313881, -0.0322011, -0.0440311, -0.201713, 0.00152924, 0.469481, 0.00555141 )
+
+[node name="BoneAttachment3" parent="Rig/Skeleton3D" index="2"]
+transform = Transform3D( 0.949274, 1.49012e-08, -0.314451, -0.213705, -0.73357, -0.64514, -0.230671, 0.679614, -0.696358, -1.11029, -0.00707746, 0.0905501 )
+
+[node name="BoneAttachment4" parent="Rig/Skeleton3D" index="3"]
+transform = Transform3D( 0.824979, -0.562826, 0.0513612, -0.564925, -0.823861, 0.0459733, 0.0164399, -0.0669419, -0.997621, -0.678228, 0.625365, 0.141938 )
+
+[node name="BoneAttachment5" parent="Rig/Skeleton3D" index="4"]
+transform = Transform3D( 1, -1.65317e-07, -5.07435e-07, 7.71444e-09, 0.955192, -0.295988, 5.3363e-07, 0.295988, 0.955192, -2.47406e-08, 0.637074, -0.0807577 )
+
+[node name="BoneAttachment6" parent="Rig/Skeleton3D" index="5"]
+transform = Transform3D( 1, -5.08843e-08, -5.3359e-07, 3.06081e-07, 0.871428, 0.490524, 4.40025e-07, -0.490524, 0.871428, 3.51257e-09, 0.153219, 0.191603 )
+
+[node name="BoneAttachment7" parent="Rig/Skeleton3D" index="6"]
+transform = Transform3D( 1, -5.08843e-08, -5.3359e-07, 3.06081e-07, 0.871428, 0.490524, 4.40025e-07, -0.490524, 0.871428, 3.51257e-09, 0.153219, 0.191603 )
+
+[node name="BoneAttachment8" parent="Rig/Skeleton3D" index="7"]
+transform = Transform3D( 1, -5.08843e-08, -5.3359e-07, 3.06081e-07, 0.871428, 0.490524, 4.40025e-07, -0.490524, 0.871428, 3.51257e-09, 0.153219, 0.191603 )
+
+[node name="BoneAttachment9" parent="Rig/Skeleton3D" index="8"]
+transform = Transform3D( -0.991822, 3.72529e-08, 0.127626, 0.0237227, -0.982573, 0.184357, 0.125402, 0.185877, 0.974538, 0.484389, -0.101246, 1.11212 )
+
+[node name="BoneAttachment10" parent="Rig/Skeleton3D" index="9"]
+transform = Transform3D( -0.95928, 0.272447, -0.0745312, -0.0712139, 0.0220585, 0.997218, 0.273333, 0.961918, -0.00175828, 0.317358, -0.114769, 0.52239 )
+
+[node name="BoneAttachment11" parent="Rig/Skeleton3D" index="10"]
+transform = Transform3D( -0.946011, 0.108059, -0.305593, -0.158172, -0.97682, 0.144239, -0.282923, 0.184788, 0.941174, -0.509444, -0.101246, 1.11212 )
+
+[node name="BoneAttachment12" parent="Rig/Skeleton3D" index="11"]
+transform = Transform3D( -0.943988, -0.321725, -0.0733433, -0.0847949, 0.0217065, 0.996162, -0.318898, 0.946584, -0.0477714, -0.309007, -0.114769, 0.52239 )
+
+[node name="BoneAttachment13" parent="Rig/Skeleton3D" index="12"]
+transform = Transform3D( 1, -5.23169e-08, -1.17044e-06, -1.09728e-06, 0.308325, -0.951281, 4.10642e-07, 0.951281, 0.308325, 3.51257e-09, 0.153219, 0.191603 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_default_blend_time = 0.1
+script = ExtResource( 2 )

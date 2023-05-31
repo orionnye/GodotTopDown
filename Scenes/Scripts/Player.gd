@@ -1,20 +1,20 @@
-extends RigidBody
+extends RigidBody3D
 
 #Player Movement
-export var speed = 0.1
-export var maxSpeed = 1
-export var jumpTime = 1
-export var jumpForce = 80
-export var airDamp = 3
-export var groundDamp = 5
+@export var speed = 0.1
+@export var maxSpeed = 1
+@export var jumpTime = 0.5
+@export var jumpForce = 80
+@export var groundDamp = 7
+@export var airDamp = 3
 var jumping = false
 #var velocity = Vector3(0, 0, 0)
 
 #Global tools
-onready var this = $"."
-onready var map = $"../."
-onready var cam = $"Camera"
-onready var shotgun = $"./Shotgun"
+@onready var this = $"."
+@onready var map = $"../."
+@onready var cam = $"Camera3D"
+@onready var shotgun = $"./Shotgun"
 
 # ----------------- Gun Functions -------------------------
 func handleGun(gun):

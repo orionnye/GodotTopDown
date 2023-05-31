@@ -1,41 +1,44 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/SekolCharacter.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/Prefabs/RockGoblin/RockGoblin4.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Scripts/PlayerMovement.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Scripts/Camera.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Prefabs/Guns/Shotgun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Materials/playerMaterial.tres" type="PhysicsMaterial" id=5]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape3D" id=1]
 
-[node name="Player" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-06, -0.00164032, -0.000488281 )
-mass = 15.151
+[node name="Player" type="RigidBody3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-06, -0.00164032, -0.000488281 )
+mass = 8.27
 physics_material_override = ExtResource( 5 )
+gravity_scale = 2.0
+continuous_cd = true
+can_sleep = false
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource( 2 )
-speed = 11.0
-maxSpeed = 30
-airDamp = 0
-groundDamp = 4
+speed = 10.0
+maxSpeed = 20
+jumpForce = 120
+groundDamp = 5
+airDamp = 4
 
 [node name="Shotgun" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 1.18135, -1.09945 )
-bulletPerShot = 1
+transform = Transform3D( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.685668, 0.781175, -1.57298 )
+bulletSpeed = 40.0
+bulletPerShot = 3
 bulletMass = 1.0
 spread = 0.1
-reloadTime = 0.2
+reloadTime = 0.8
 automatic = true
 
-[node name="Body" type="MeshInstance" parent="."]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 1.8, 0 )
-mesh = ExtResource( 1 )
+[node name="RockGoblin4" parent="." instance=ExtResource( 1 )]
 
-[node name="Capsule" type="CollisionShape" parent="."]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.65, 0, 0.5, -2.84124e-08, 0, 0.730758, 0 )
+[node name="Capsule" type="CollisionShape3D" parent="."]
+transform = Transform3D( 0.5, 0, 0, 0, -2.46624e-08, -0.733473, 0, 0.5, -2.84124e-08, 0, 0.938041, 0 )
 shape = SubResource( 1 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 10, 0 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 10, 0 )
 script = ExtResource( 3 )

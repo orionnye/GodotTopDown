@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/RockGoblin/RockGoblin.glb" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Scripts/PlayerAnimate.gd" type="Script" id=2]
+
+[node name="RockGoblin" instance=ExtResource( 1 )]
+transform = Transform3D( -0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0 )
+
+[node name="Skeleton3D" parent="Rig" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment6"), NodePath("BoneAttachment7"), NodePath("BoneAttachment8") ]
+bones/2/bound_children = [ NodePath("BoneAttachment2") ]
+bones/3/bound_children = [ NodePath("BoneAttachment3D") ]
+bones/4/bound_children = [ NodePath("BoneAttachment4") ]
+bones/5/bound_children = [ NodePath("BoneAttachment3") ]
+bones/6/bound_children = [ NodePath("BoneAttachment5") ]
+bones/8/bound_children = [ NodePath("BoneAttachment10") ]
+bones/9/bound_children = [ NodePath("BoneAttachment9") ]
+bones/10/bound_children = [ NodePath("BoneAttachment12") ]
+bones/11/bound_children = [ NodePath("BoneAttachment11") ]
+bones/12/bound_children = [ NodePath("BoneAttachment13") ]
+
+[node name="BoneAttachment3D" parent="Rig/Skeleton3D" index="0"]
+transform = Transform3D( 0.954366, 0.0843465, 0.286482, 0.282703, -0.564352, -0.77562, 0.0962555, 0.821214, -0.562443, 1.11351, 0.423691, 0.167872 )
+
+[node name="BoneAttachment2" parent="Rig/Skeleton3D" index="1"]
+transform = Transform3D( 0.825265, 0.563143, -0.0425259, 0.564317, -0.819361, 0.100968, 0.0220153, -0.107323, -0.99398, 0.683498, 1.04934, 0.249822 )
+
+[node name="BoneAttachment3" parent="Rig/Skeleton3D" index="2"]
+transform = Transform3D( 0.949528, -0.00737815, -0.313595, -0.243265, -0.648476, -0.72132, -0.198037, 0.7612, -0.617541, -1.11151, 0.445548, 0.0783941 )
+
+[node name="BoneAttachment4" parent="Rig/Skeleton3D" index="3"]
+transform = Transform3D( 0.82312, -0.564871, 0.0582601, -0.563566, -0.799969, 0.20602, -0.0697685, -0.202412, -0.976812, -0.677878, 1.05965, 0.233777 )
+
+[node name="BoneAttachment5" parent="Rig/Skeleton3D" index="4"]
+transform = Transform3D( 0.999996, 0.00280782, 8.11522e-05, -0.00256304, 0.923881, -0.382673, -0.00114945, 0.382671, 0.923884, 0.00192193, 1.18937, 0.0690651 )
+
+[node name="BoneAttachment6" parent="Rig/Skeleton3D" index="5"]
+transform = Transform3D( 0.999972, 0.0034614, -0.00657716, -0.00410552, 0.99492, -0.100588, 0.00619557, 0.100613, 0.994906, 5.06149e-09, 0.63695, 0.0132006 )
+
+[node name="BoneAttachment7" parent="Rig/Skeleton3D" index="6"]
+transform = Transform3D( 0.999972, 0.0034614, -0.00657716, -0.00410552, 0.99492, -0.100588, 0.00619557, 0.100613, 0.994906, 5.06149e-09, 0.63695, 0.0132006 )
+
+[node name="BoneAttachment8" parent="Rig/Skeleton3D" index="7"]
+transform = Transform3D( 0.999972, 0.0034614, -0.00657716, -0.00410552, 0.99492, -0.100588, 0.00619557, 0.100613, 0.994906, 5.06149e-09, 0.63695, 0.0132006 )
+
+[node name="BoneAttachment9" parent="Rig/Skeleton3D" index="8"]
+transform = Transform3D( -0.991822, -4.47035e-08, 0.127626, -0.0836291, -0.755397, -0.649909, 0.0964083, -0.655268, 0.749219, 0.484389, -0.27863, 0.414961 )
+
+[node name="BoneAttachment10" parent="Rig/Skeleton3D" index="9"]
+transform = Transform3D( -0.95928, 0.272447, -0.0745312, -0.271043, -0.813638, 0.514323, 0.0794844, 0.513581, 0.854352, 0.317358, 0.220192, 0.100098 )
+
+[node name="BoneAttachment11" parent="Rig/Skeleton3D" index="10"]
+transform = Transform3D( -0.943256, 0.102547, -0.315837, 0.0882622, -0.839486, -0.536166, -0.320123, -0.533617, 0.782799, -0.509444, -0.235172, 0.475073 )
+
+[node name="BoneAttachment12" parent="Rig/Skeleton3D" index="11"]
+transform = Transform3D( -0.943989, -0.321725, -0.0733433, 0.198371, -0.730914, 0.653005, -0.263695, 0.60188, 0.753794, -0.309007, 0.220192, 0.100098 )
+
+[node name="BoneAttachment13" parent="Rig/Skeleton3D" index="12"]
+transform = Transform3D( 0.999925, 0.00609906, -0.0105928, -0.0101629, -0.0666529, -0.997725, -0.00679122, 0.997758, -0.0665859, 5.06148e-09, 0.63695, 0.0132006 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+process_mode = 2
+physics_interpolation_mode = 1
+process_priority = 1
+method_call_mode = 1
+script = ExtResource( 2 )

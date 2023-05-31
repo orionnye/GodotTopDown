@@ -1,90 +1,80 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://clk0noa8vkygp"]
 
-[ext_resource path="res://Scenes/Scripts/MapInit.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/Concrete/concrete_texture.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Prefabs/Turret.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Ball/SoccerBall.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://Scenes/Materials/Floor.tres" type="PhysicsMaterial" id=5]
+[ext_resource type="Script" path="res://Scenes/Scripts/MapInit.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Turret.tscn" id="3"]
+[ext_resource type="ArrayMesh" uid="uid://c4kf6k4qdw17j" path="res://Assets/Ball/SoccerBall.obj" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Player.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/BouncyCubes/bouncyCube.tscn" id="7"]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="BoxMesh" id="1"]
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_texture = ExtResource( 2 )
-uv1_triplanar = true
+[sub_resource type="BoxShape3D" id="2"]
+size = Vector3(2, 2.44064, 2)
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="SphereShape3D" id="4"]
 
-[sub_resource type="SphereShape" id=4]
+[node name="Map" type="Node3D"]
+script = ExtResource("1")
 
-[node name="Map" type="Spatial"]
-script = ExtResource( 1 )
+[node name="Turret" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, 20.0552, -3.8147e-06, -1.19747)
 
-[node name="Floor" type="StaticBody" parent="."]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1, 0 )
-physics_material_override = ExtResource( 5 )
+[node name="Turret2" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.943205, 0.332211, -1.45214e-08, 0, -4.37114e-08, -1, -0.332211, -0.943205, 4.12288e-08, 11.098, -0.0833828, -14.617)
 
-[node name="MeshInstance" type="MeshInstance" parent="Floor"]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 5, 0, 0, 0, 35, 32, -1, 0)
+visible = false
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor"]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
-shape = SubResource( 2 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+mesh = SubResource("1")
 
-[node name="Turret" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, 20.0552, -3.8147e-06, -1.19747 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("2")
 
-[node name="Turret2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 26.836, -2.26382, -27.1827 )
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 5, 0, 0, 0, 35, -32, -1.45873, 0)
+visible = false
 
-[node name="Wall" type="StaticBody" parent="."]
-transform = Transform( 2.5, 0, 0, 0, 5, 0, 0, 0, 35, 32, -1, 0 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+mesh = SubResource("1")
 
-[node name="MeshInstance" type="MeshInstance" parent="Wall"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("2")
 
-[node name="CollisionShape" type="CollisionShape" parent="Wall"]
-shape = SubResource( 2 )
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.09278e-07, 0, 35, 0, 5, 0, -2.5, 0, -1.5299e-06, 0, -1.45873, -32)
+visible = false
 
-[node name="Wall2" type="StaticBody" parent="."]
-transform = Transform( 2.5, 0, 0, 0, 5, 0, 0, 0, 35, -32, -1.45873, 0 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+mesh = SubResource("1")
 
-[node name="MeshInstance" type="MeshInstance" parent="Wall2"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("2")
 
-[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
-shape = SubResource( 2 )
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.09278e-07, 0, 35, 0, 5, 0, -2.5, 0, -1.5299e-06, 0, -1.45873, 32)
+visible = false
 
-[node name="Wall3" type="StaticBody" parent="."]
-transform = Transform( -1.09278e-07, 0, 35, 0, 5, 0, -2.5, 0, -1.5299e-06, 0, -1.45873, -32 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+mesh = SubResource("1")
 
-[node name="MeshInstance" type="MeshInstance" parent="Wall3"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+shape = SubResource("2")
 
-[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
-shape = SubResource( 2 )
-
-[node name="Wall4" type="StaticBody" parent="."]
-transform = Transform( -1.09278e-07, 0, 35, 0, 5, 0, -2.5, 0, -1.5299e-06, 0, -1.45873, 32 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Wall4"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
-shape = SubResource( 2 )
-
-[node name="Ball" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32339, -3.27442 )
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32339, -3.27442)
 mass = 7.49
 
-[node name="CollisionShape" type="CollisionShape" parent="Ball"]
-shape = SubResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("4")
 
-[node name="MeshInstance" type="MeshInstance" parent="Ball"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-mesh = ExtResource( 4 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("4")
+
+[node name="bouncyCube" parent="." instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46939, 0.809362, 0)
+
+[node name="Player" parent="." instance=ExtResource("5")]
+airDamp = 2

@@ -1,48 +1,56 @@
 extends "res://Scenes/Scripts/Player.gd"
-
+@onready var animator = $"RockGoblin4/AnimationPlayer"
 # -----------------Mobility Functions------------------------
 func move(character):
 	var direction = Vector3.ZERO
+#	var acceleration = character.get_linear_velocity()
 	var acceleration = Vector3(0, 0, 0)
-	if !jumping:
-		if Input.is_action_pressed("ui_right"):
-			acceleration.x -= speed
-		if Input.is_action_pressed("ui_left"):
-			acceleration.x += speed
-		if Input.is_action_pressed("ui_down"):
-			acceleration.z -= speed
-		if Input.is_action_pressed("ui_up"):
-			acceleration.z += speed
-		if Input.is_action_just_pressed("ui_jump"):
-			jump(character)
+#	if (!jumping):
+	if Input.is_action_pressed("ui_right"):
+		acceleration.x -= speed
+	if Input.is_action_pressed("ui_left"):
+		acceleration.x += speed
+	if Input.is_action_pressed("ui_down"):
+		acceleration.z -= speed
+	if Input.is_action_pressed("ui_up"):
+		acceleration.z += speed
+	if Input.is_action_just_pressed("ui_jump"):
+		animator.jump()
+	if Input.is_action_just_released("ui_jump"):
+		jump(character)
+#		character.set_linear_damp(groundDamp)
+#	else:
+#		character.set_linear_damp(airDamp)
 	
-	acceleration = acceleration.normalized() * maxSpeed
+#	if (!jumping && acceleration.length() > deadzone):
+#		animator.play("Run")
+	acceleration = acceleration.normalized() * speed
 	character.apply_central_impulse(acceleration)
-	
-	if jumping:
-		character.set_linear_damp(airDamp)
-	else:
-		character.set_linear_damp(groundDamp)
+
+#	Animation Handler
+	var deadZone = 1
+#	if acceleration.length() > deadZone:
+#		animator.run()
 
 func jump(character):
 	jumping = true
 	character.apply_central_impulse(Vector3(0, character.jumpForce, 0))
-	print("starting Jump")
 	var _timer = Timer.new()
 	character.add_child(_timer)
 	
-	_timer.connect("timeout", self, "jump_timeout")
+	_timer.connect("timeout",Callable(self,"jump_timeout"))
 	_timer.set_one_shot(true)
 	_timer.set_wait_time(jumpTime)
 	_timer.start()
 	
 func jump_timeout():
+	animator.roll()
 	jumping = false
-	print("ending Jump")
+
 # ---------------Aim Functions---------------------------
 func look_follow(state, current_transform, target_position):
 	var up_dir = Vector3(0, 1, 0)
-	var cur_dir = current_transform.basis.xform(Vector3(0, 0, 1))
+	var cur_dir = current_transform.basis * Vector3(0, 0, 1)
 	var target_dir = target_position.normalized()
 	
 	var cur_angle = Vector2(cur_dir.x, cur_dir.z).angle()

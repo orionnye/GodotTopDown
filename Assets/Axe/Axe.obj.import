@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh"
+uid="uid://nku7xu4dtxnr"
+path="res://.godot/imported/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh"
 
 [deps]
 
-files=[ "res://.import/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh" ]
+files=["res://.godot/imported/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh"]
 
 source_file="res://Assets/Axe/Axe.obj"
-dest_files=[ "res://.import/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh", "res://.import/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh" ]
+dest_files=["res://.godot/imported/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh", "res://.godot/imported/Axe.obj-be84eb98638d803109e1e289b8a66c1f.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

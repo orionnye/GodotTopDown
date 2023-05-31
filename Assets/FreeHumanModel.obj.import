@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh"
+uid="uid://d0pf7sg5w36o6"
+path="res://.godot/imported/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh"
 
 [deps]
 
-files=[ "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh" ]
+files=["res://.godot/imported/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh"]
 
 source_file="res://Assets/FreeHumanModel.obj"
-dest_files=[ "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh", "res://.import/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh" ]
+dest_files=["res://.godot/imported/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh", "res://.godot/imported/FreeHumanModel.obj-01181117bb9998aa3838825e497f7aad.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

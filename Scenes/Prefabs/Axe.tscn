@@ -4,8 +4,8 @@
 
 [sub_resource type="Skin" id=1]
 
-[node name="Axe" type="Spatial"]
+[node name="Axe" type="Node3D"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource( 1 )
 skin = SubResource( 1 )

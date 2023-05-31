@@ -1,19 +1,19 @@
-extends Spatial
+extends Node3D
 #Bullet Data
 var bulletList = []
-export var bulletSpeed = 100.0
-export var bulletDistance = 1000
-export var decay = 0.9
-export var bulletPerShot = 1
-export var bulletMass = 0.05
-export var spread = PI/4
-export var reloadTime = 1.0
+@export var bulletSpeed = 100.0
+@export var bulletDistance = 1000
+@export var decay = 0.9
+@export var bulletPerShot = 1
+@export var bulletMass = 0.05
+@export var spread = PI/4
+@export var reloadTime = 1.0
 var reloading = 0
-export var bulletTimeAlive = 2.0
-export var automatic = true
+@export var bulletTimeAlive = 2.0
+@export var automatic = true
 var bulletScene = load('res://Scenes/Prefabs/Bullet.tscn')
 
-onready var map = $"../.."
+@onready var map = $"../.."
 
 func get_rotation() -> Vector3:
 	var this = $"."
@@ -41,7 +41,7 @@ func fire():
 func fire_bullet(speed, direction):
 #	direction is measured in radians from straight forward of gun(ie: -PI/6, PI/8)
 	var this = $"."
-	var bullet = bulletScene.instance()
+	var bullet = bulletScene.instantiate()
 	var globalRotation = this.global_transform.basis.get_euler()
 	
 	var bulletForce = (get_rotation()*bulletSpeed).rotated(Vector3.UP, direction)
